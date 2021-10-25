@@ -14,17 +14,21 @@
 // prompt: do you want your password to contain a special character? (yes or no)
   // --> if, else statements
 
-const lowercase = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-const uppercase = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
-const special = [!,",#,$,%,&,',(,),*,+,,,-,.,/,:,;,<,=,>,?,@,[,\,],^,_,`,{,|,},~]
-const randomNumber = Math.floor(Math.random(0-10))
-
 function callLowercase () {
     return String.fromCharCode(Math.floor(Math.random()*26)+97)
-  }
+}
 
 function callUppercase () {
-    return String.fromCharCode(Math.floor(Math.random()*26)+97)
-  }
+    return String.fromCharCode(Math.floor(Math.random()*26)+65)
+}
 
-  console.log(callUppercase());   
+function callNumber () {
+  return String.fromCharCode(Math.floor(Math.random()*10)+48)
+}
+
+function callSymbol () {
+const symbols = '!#$%&()*+,-./:;<=>?@[]^_`{|}~';
+return symbols [Math.floor(Math.random() * symbols.length)];
+}
+
+console.log(callLowercase); 

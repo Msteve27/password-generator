@@ -34,20 +34,46 @@ generateBtn.addEventListener("click", writePassword);
 
 // prompt: do you want your password to contain a special character? (yes or no)
   // --> if, else statements
+const generatePW = document.getElementById('generate')
+const PWlength = document.getElementById('length')
+const lowercase = document.getElementById('lowercase')
+const uppercase = document.getElementById('uppercase')
+const number = document.getElementById('number')
+const symbol = document.getElementById('symbol')
 
-  const lowercase = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-  const uppercase = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
-  const special = [!,",#,$,%,&,',(,),*,+,,,-,.,/,:,;,<,=,>,?,@,[,\,],^,_,`,{,|,},~]
-  const randomNumber = Math.floor(Math.random(0-10))
-  
-  function callLowercase () {
+const randomFunction = {
+  lower: callLowercase,
+  upper: callUppercase,
+  number: callNumber,
+  symbol: callSymbol,
+};
+
+generatePW.addEventListener('click', () => {
+  const length = +PWlength.value;
+  const yesLower = lowercase.addEventListener(true/false);
+  const yesUpper = uppercase.addEventListener(true/false);
+  const yesNumber = number.addEventListener(true/false);
+  const yesSymbol = symbol.addEventListener(true/false);
+});
+
+function callLowercase () {
       return String.fromCharCode(Math.floor(Math.random()*26)+97)
-    }
+  }
   
-  function callUppercase () {
+function callUppercase () {
       return String.fromCharCode(Math.floor(Math.random()*26)+65)
-    }
-  
-    console.log(callUppercase());
+  }
+
+function callNumber () {
+    return String.fromCharCode(Math.floor(Math.random()*10)+48)
+}
+
+function callSymbol () {
+  const symbols = '!#$%&()*+,-./:;<=>?@[]^_`{|}~';
+  return symbols [Math.floor(Math.random() * symbols.length)];
+}
+
+console.log(callLowercase);
+
 
 
