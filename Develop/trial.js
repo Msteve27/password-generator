@@ -14,21 +14,60 @@
 // prompt: do you want your password to contain a special character? (yes or no)
   // --> if, else statements
 
-function callLowercase () {
-    return String.fromCharCode(Math.floor(Math.random()*26)+97)
-}
 
-function callUppercase () {
-    return String.fromCharCode(Math.floor(Math.random()*26)+65)
-}
-
-function callNumber () {
-  return String.fromCharCode(Math.floor(Math.random()*10)+48)
-}
-
-function callSymbol () {
-const symbols = '!#$%&()*+,-./:;<=>?@[]^_`{|}~';
-return symbols [Math.floor(Math.random() * symbols.length)];
-}
-
-console.log(callLowercase); 
+  const generatePW = document.getElementById('generate')
+  const result = document.getElementById('result')
+  const PWlength = document.getElementById('length')
+  const lowercase = document.getElementById('lowercase')
+  const uppercase = document.getElementById('uppercase')
+  const number = document.getElementById('number')
+  const symbol = document.getElementById('symbol')
+  
+  const randomFunction = {
+    lower: callLowercase,
+    upper: callUppercase,
+    number: callNumber,
+    symbol: callSymbol,
+  };
+  
+  generatePW.addEventListener('click', () => {
+    const length = +PWlength.value;
+    const yesLower = lowercase.addEventListener(true/false);
+    const yesUpper = uppercase.addEventListener(true/false);
+    const yesNumber = number.addEventListener(true/false);
+    const yesSymbol = symbol.addEventListener(true/false);
+  
+    result.innerText = generatePW(
+      yesLower, 
+      yesUpper, 
+      yesNumber, 
+      yesSymbol, 
+      length
+      );
+  });
+  
+  function generatePW(lower, upper, number, symbol, length) {
+    let generatePW = '';
+    const optionsCount = lower + upper + number + symbol;
+    const optionsArray = [lower, upper, number, symbol];
+  }
+  
+  function callLowercase () {
+        return String.fromCharCode(Math.floor(Math.random()*26)+97)
+    }
+    
+  function callUppercase () {
+        return String.fromCharCode(Math.floor(Math.random()*26)+65)
+    }
+  
+  function callNumber () {
+      return String.fromCharCode(Math.floor(Math.random()*10)+48)
+  }
+  
+  function callSymbol () {
+    const symbols = '!#$%&()*+,-./:;<=>?@[]^_`{|}~';
+    return symbols [Math.floor(Math.random() * symbols.length)];
+  }
+  
+  console.log(callLowercase);
+  
