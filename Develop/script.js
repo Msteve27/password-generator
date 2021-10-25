@@ -34,7 +34,10 @@ generateBtn.addEventListener("click", writePassword);
 
 // prompt: do you want your password to contain a special character? (yes or no)
   // --> if, else statements
+
+
 const generatePW = document.getElementById('generate')
+const result = document.getElementById('result')
 const PWlength = document.getElementById('length')
 const lowercase = document.getElementById('lowercase')
 const uppercase = document.getElementById('uppercase')
@@ -54,7 +57,21 @@ generatePW.addEventListener('click', () => {
   const yesUpper = uppercase.addEventListener(true/false);
   const yesNumber = number.addEventListener(true/false);
   const yesSymbol = symbol.addEventListener(true/false);
+
+  result.innerText = generatePW(
+    yesLower, 
+    yesUpper, 
+    yesNumber, 
+    yesSymbol, 
+    length
+    );
 });
+
+function generatePW(lower, upper, number, symbol, length) {
+  let generatePW = '';
+  const optionsCount = lower + upper + number + symbol;
+  const optionsArray = [lower, upper, number, symbol];
+}
 
 function callLowercase () {
       return String.fromCharCode(Math.floor(Math.random()*26)+97)
